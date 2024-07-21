@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+   <!--  <link rel="stylesheet" href="/stylesheets//output.css"> -->
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+    <div class="main min-h-screen w-full bg-slate-300 px-5 pt-48">
+      
+        <h1 class="text-3xl mt-5 text-center"> <span class="font-semibold">Passcode</span></h1>
+        <form class="flex items-center justify-center" action="/hisaab/passcode/<%= hisaab._id %>" method="post">
+            <div class="">
+                <input class="block px-4 py-2 rounded-lg outline-none border-2 border-zinc-400 mt-5" type="text" placeholder="Enter passcode here" name="passcode">
+                <input class="block px-20 py-2 rounded-lg bg-blue-600 text-white font-semibold mt-5 cursor-pointer" type="submit" name="" id="">
+            </div>
+        </form>
+       
+</body>
+</html>

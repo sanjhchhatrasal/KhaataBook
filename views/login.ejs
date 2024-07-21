@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+   <!--  <link rel="stylesheet" href="/stylesheets//output.css"> -->
+   <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main min-h-screen w-full bg-slate-200 py-3 px-5 ">
+        <div class="nav h-16 w-full bg-slate-100 rounded-lg flex items-center justify-between px-2">
+            <h1 class="text-2xl text-zinc-500"><span class="text-black text-4xl">K</span>haata<span class="text-black text-4xl">B</span>ook</h1>
+        </div>
+       <div class="form h-[90%] w-[35%] rounded-xl shadow-xl bg-white px-2 py-10 text-center mt-20 ml-[30%]">
+        <form class="text-center" action="/login" method="post">
+            <h1 class="text-3xl font-semibold">Welcome to KhaataBook</h1>
+            <h2 class="text-2xl text-zinc-500 mt-3">LogIn here</h2>
+            <input class="px-4 py-2 rounded-lg outline-none border-2 border-zinc-400 mt-5 w-[70%]" type="email" placeholder="Email" name="email">
+            <input class="px-4 py-2 rounded-lg outline-none border-2 border-zinc-400 mt-5 w-[70%]" type="password" placeholder="password" name="password">
+            <input class="px-3 py-3 rounded-lg bg-blue-600 text-white font-semibold w-[70%] mt-5 cursor-pointer" type="submit" value="LogIn">
+            <p class="text-zinc-700 mt-4">Already registered? <a href="/" class="text-red-400 underline">Sign Up</a></p>
+        </form>
+       </div>
+    </div>
+</body>
+</html>

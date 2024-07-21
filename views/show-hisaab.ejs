@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+   <!--  <link rel="stylesheet" href="/stylesheets//output.css"> -->
+   <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main min-h-screen w-full bg-slate-300 py-3 px-5 ">
+        <%- include('./partials/header.ejs') %>
+       <h1 class="text-3xl mt-5 ml-2">📃 Your hisaab <span class="font-semibold"><%= user.username %></span></h1> 
+         <div class="btns mt-10 flex items-center gap-5 ml-2">
+            <p class="text-zinc-500 text-lg">Created on <%= hisaab.createdAt.getDate() %>/<%= hisaab.createdAt.getMonth() + 1 %>/<%= hisaab.createdAt.getFullYear() %></p>
+            <% if(hisaab.isEditable){ %>
+                <a class="rounded-lg px-4 py-2 text-white font-semibold bg-yellow-600" href="/hisaab/edit/<%= hisaab._id %>">Edit</a>
+                <a class="rounded-lg px-4 py-2 text-white font-semibold bg-red-600" href="/hisaab/delete/<%= hisaab._id %>">Delete</a>
+           <% } else{ %>
+                <p class="text-zinc-900">No access to edit or delete this hisaab </p>
+          <% } %>
+         </div>
+         <div class="hisaab mt-5 bg-slate-200 w-[45%] p-3 rounded-lg">
+           <div class=" p-2 rounded-lg">
+            <label class="text-zinc-500">Your title of the hisaab</label>
+           <h1 class="text-2xl font-semibold mt-2"><%= hisaab.title %></h1>
+           </div>
+           <div class=" p-2 rounded-lg mt-10">
+            <label class="text-zinc-500 mt-5">Your Description of the hisaab</label>
+            <p class="text-xl text-zinc-700 my-2"><%= hisaab.content %></p>
+           </div>
+         </div>
+    </div>
+</body>
+</html>
