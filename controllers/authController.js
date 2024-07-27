@@ -8,6 +8,7 @@ module.exports.registerUserPage = async (req, res) => {
 }
 
 module.exports.registerUser = async (req, res) => {
+  try{
     let {email, username, fullname, password} = req.body;
 
     let user = await userModel.findOne({email});
@@ -31,6 +32,10 @@ module.exports.registerUser = async (req, res) => {
         maxAge : 30 * 24 * 60 * 60 *1000
     })
     res.redirect("/profile")
+  } catch (error){
+    console.log(error);
+    res.status(500).send("Server Error")
+  }
 }
 
 module.exports.loginUserPage = async (req, res) => {
@@ -38,6 +43,7 @@ module.exports.loginUserPage = async (req, res) => {
 }
 
 module.exports.loginUser = async (req, res) => {
+   try{
     let {email, password} = req.body;
     let user = await userModel.findOne({email})
     if(!user){
@@ -55,10 +61,15 @@ module.exports.loginUser = async (req, res) => {
    } else{
     res.redirect("/login")
    }
+   } catch (error){
+    console.log(error);
+    res.status(500).send("Server Error")
+  }
 }
 
 module.exports.profile = async (req, res) => {
 
+  try{
     let byDate = Number(req.query.bydate);
     let {startDate, endDate} = req.query;
 
@@ -72,10 +83,19 @@ module.exports.profile = async (req, res) => {
         options: { sort: { createdAt: byDate }}
     })
     res.render("profile", {user})
+  } catch (error){
+    console.log(error);
+    res.status(500).send("Server Error")
+  }
 }
 
 module.exports.logoutUser = async (req, res) => {
+   try{
     res.cookie("token", "");
     res.redirect("/login");
+   } catch (error){
+    console.log(error);
+    res.status(500).send("Server Error")
+  }
 }
 
