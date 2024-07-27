@@ -19,4 +19,4 @@ app.use("/", authRouter);
 
 app.use("/hisaab", hisaabRouter);
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 3000);
