@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(`${process.env.MONGO_DB_URI}`)
+try{
+    mongoose.connect(`${process.env.MONGO_DB_URI}`)
 
 const db = mongoose.connection;
 
@@ -9,3 +10,7 @@ db.once("open", function(){
 });
 
 module.exports = db;
+} catch(error){
+    console.error("Failed to connect to MongoDB:", error);
+    process.exit(1); 
+}
